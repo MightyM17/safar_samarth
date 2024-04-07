@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:safar_samarth/screens/home_screen.dart';
 import 'package:safar_samarth/screens/notification_screen.dart';
+import 'package:safar_samarth/utils/shared_drawer.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
@@ -33,58 +34,7 @@ class _GraphScreenState extends State<GraphScreen> {
           }, icon: Icon(Icons.notifications))
         ],
       ),
-        drawer: Drawer(
-          child: Column(
-            children: [
-              SizedBox(height: 50,),
-              Row(
-                children: [
-                  SizedBox(width: 20,),
-                  CircleAvatar(),
-                  SizedBox(width: 20,),
-                  Text(
-                    "Shlok Mangle",
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 24,
-                      color: Colors.black,
-                    ),
-                  )
-                ],
-              ),
-              ListTile(
-                  title: Text("Dashboard"),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => HomeScreen(),
-                        transitionDuration: const Duration(milliseconds: 300),
-                        transitionsBuilder: (_, a, __, c) =>
-                            FadeTransition(opacity: a, child: c),
-                      ),
-                    );
-                  }
-              ),
-              Divider(),
-              ListTile(
-                  title: Text("Statistics"),
-                  onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      PageRouteBuilder(
-                        pageBuilder: (_, __, ___) => GraphScreen(),
-                        transitionDuration: const Duration(milliseconds: 300),
-                        transitionsBuilder: (_, a, __, c) =>
-                            FadeTransition(opacity: a, child: c),
-                      ),
-                    );
-                  }
-              ),
-              Divider(),
-            ],
-          ),
-        ),
+      drawer: SharedDrawer(),
       body: Center(
           child: Column(
             children: [
