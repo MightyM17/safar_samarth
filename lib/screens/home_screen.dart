@@ -4,6 +4,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:safar_samarth/screens/graph_screen.dart';
 import 'package:safar_samarth/screens/notification_screen.dart';
 import 'package:safar_samarth/screens/safety_screen.dart';
+import 'package:safar_samarth/utils/shared_drawer.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -18,7 +19,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF157040),
-        title: Center(child: Text("Dashboard")),
+        title: Center(
+            child: Text(
+              "Dashboard",
+              style: TextStyle(
+                color: Colors.white
+              ),
+            ),
+        ),
         actions: [
           IconButton(onPressed: (){
             Navigator.push(
@@ -33,73 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
           }, icon: Icon(Icons.notifications))
         ],
       ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            SizedBox(height: 50,),
-            Row(
-              children: [
-                SizedBox(width: 20,),
-                CircleAvatar(),
-                SizedBox(width: 20,),
-                Text(
-                    "Shlok Mangle",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 24,
-                    color: Colors.black,
-                  ),
-                )
-              ],
-            ),
-            ListTile(
-              title: Text("Dashboard"),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    pageBuilder: (_, __, ___) => HomeScreen(),
-                    transitionDuration: const Duration(milliseconds: 300),
-                    transitionsBuilder: (_, a, __, c) =>
-                        FadeTransition(opacity: a, child: c),
-                  ),
-                );
-              }
-            ),
-            Divider(),
-            ListTile(
-                title: Text("Statistics"),
-                onTap: () {
-                  Navigator.pushReplacement(
-                    context,
-                    PageRouteBuilder(
-                      pageBuilder: (_, __, ___) => GraphScreen(),
-                      transitionDuration: const Duration(milliseconds: 300),
-                      transitionsBuilder: (_, a, __, c) =>
-                          FadeTransition(opacity: a, child: c),
-                    ),
-                  );
-                }
-            ),
-            Divider(),
-            ListTile(
-                title: Text("Score"),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    PageRouteBuilder(
-                      pageBuilder: (_, __, ___) => SafetyScreen(),
-                      transitionDuration: const Duration(milliseconds: 300),
-                      transitionsBuilder: (_, a, __, c) =>
-                          FadeTransition(opacity: a, child: c),
-                    ),
-                  );
-                }
-            ),
-            Divider(),
-          ],
-        ),
-      ),
+      drawer: SharedDrawer(),
       body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -113,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   'Hello, Shlok Mangle!',
                   style: TextStyle(
-                    fontSize: 48,
+                    fontSize: 54,
                     fontWeight: FontWeight.w600,
                     color: Colors.white,
                   ),
