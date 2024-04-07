@@ -60,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen>
           scale: _animation,
           child: Image(
             image: const AssetImage(
-              'assets/images/ss.jpg',
+              'assets/images/ss.png',
             ),
             // height: 480,
             width: MediaQuery.of(context).size.width,
