@@ -40,6 +40,11 @@ dependencies:
   latlong2: ^0.9.0
   syncfusion_flutter_core: 23.2.4
   syncfusion_flutter_charts: 23.2.4
+  http: any
+  video_player: any
+  chewie: any
+  webview_flutter: any
+  url_launcher: any
 
 dev_dependencies:
   flutter_test:
